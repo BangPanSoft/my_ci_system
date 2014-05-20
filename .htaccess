@@ -1,0 +1,13 @@
+<IfModule mod_rewrite.c>
+
+RewriteEngine On
+RewriteBase /cix
+
+#RewriteCond %{HTTP_HOST} !^([a-zA-Z0-9\_\-]+)\.(.*)\.(com|net|org)$ [NC]
+#RewriteRule .* http://%{HTTP_HOST}%{REQUEST_URI} [L]
+
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^(.*)$ index.php/$1 [L]
+
+</IfModule>
